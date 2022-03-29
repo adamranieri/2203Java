@@ -32,4 +32,29 @@
   - Allowed Java applications to run reliably anywhere
 - Java has large standard library
   - Lends itself to be helpful in many use cases
-- 
+
+## Naming Conventions
+- You must follow naming conventions in Java
+- It makes your code more readable and scalable
+```Java
+
+// Classes are Pascal case. Each individual word is capitalized
+class Person{
+}
+
+class BankAccount{
+}
+
+class ArrayList{
+
+}
+
+// Everything else is camelCase
+// first letter is lowercase following words are uppercase
+String firstName = "Adam"
+
+double findMaxValue(double [] nums){
+
+}
+```
+

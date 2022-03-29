@@ -1,0 +1,49 @@
+## Object Oriented Programming
+- **Paradigm** of programming
+  - Paradigm is a general philosophy of thinking/ approaching problems
+  - Programming paradigms
+    - Functional Programming
+    - Aspect Oriented Programming
+    - Declarative
+    - Imperative
+- Emphasis in OOP is on Class and **Objects**
+- **Class**
+  - Blue print for an object
+- **Object**
+  - A data structure that has state and behavior
+    - **State** 
+      - **Fields** 
+      - Instance Variables
+      - Hold data/ infromation
+    - **Behvavior** 
+      - **Methods**
+      - They manipulate the instance variables
+      - Functions bound to a specific object
+- Pros
+  - Can scale very well
+  - Well defined code
+  - Modular
+  - Objects can model real world things 
+- Cons
+  - Does require more setup than other approaches
+  - State in applications is tricky to manage in general
+  - Might over complicate certain scenarios
+
+## Pillars of OOP
+- Foundational concepts of OOP
+- **Abstraction**
+  - Hiding implementation details
+  - The implementation is not necesarry to use it
+- **Polymorphism**
+  - Many forms
+  - An object being able to take many different labels
+- **Inheritance**
+  - A way for a class to derive code from another class
+  - Will prevent you from repeating code snippets/methods
+  - *DRY* Don't repeat yourself
+    - If you find yourself writing the same method twice you need to redesign your program
+- **Encapsuation**
+  - Protect the state and behavior within a class
+  - Prevents improper usage elsewhere in the code
+    - Not at all a security feature  
+  
