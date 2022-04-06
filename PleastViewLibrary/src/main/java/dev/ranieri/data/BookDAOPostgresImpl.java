@@ -1,7 +1,9 @@
 package dev.ranieri.data;
 
 import dev.ranieri.entities.Book;
+import dev.ranieri.utilities.ArrayList;
 import dev.ranieri.utilities.ConnectionUtil;
+import dev.ranieri.utilities.List;
 
 import java.sql.*;
 
@@ -56,6 +58,32 @@ public class BookDAOPostgresImpl implements BookDAO{
             return null;
         }
 
+    }
+
+    @Override
+    public List<Book> getAllBooks() {
+        try {
+            Connection conn = ConnectionUtil.createConnection();
+            String sql = "select * from book";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+
+            List<Book> books = new ArrayList();
+            while (rs.next()){
+                Book book = new Book();
+                book.setId(rs.getInt("book_id"));
+                book.setTitle(rs.getString("title"));
+                book.setAuthor(rs.getString("author"));
+                book.setReturnDate(rs.getLong("return_date"));
+                books.add(book);
+            }
+
+        return books;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override

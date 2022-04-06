@@ -1,6 +1,7 @@
 package dev.ranieri.data;
 
 import dev.ranieri.entities.Book;
+import dev.ranieri.utilities.List;
 
 // DAO Data Access Object
 // A class responsible for CRUD operations on the database
@@ -12,6 +13,7 @@ public interface BookDAO {
 
     // Read
     Book getBookById(int id);
+    List<Book> getAllBooks();
 
     //Update
     Book updateBook(Book book);

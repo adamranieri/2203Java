@@ -3,6 +3,7 @@ package dev.ranieri.daotests;
 import dev.ranieri.data.BookDAO;
 import dev.ranieri.data.BookDAOPostgresImpl;
 import dev.ranieri.entities.Book;
+import dev.ranieri.utilities.List;
 import org.junit.jupiter.api.*;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)// to run tests in order
@@ -41,11 +42,24 @@ public class BookDaoTests {
     }
 
     @Test
-    @Order(4)
-    @Disabled // to not run something
+    @Order(4)// to not run something
     void delete_book(){
         boolean result = bookDAO.deleteBookById(testBook.getId()); // true if successful
         Assertions.assertTrue(result);
+    }
+
+    @Test
+    @Order(5)
+    void get_all_books(){
+        Book a = new Book(0,"A","B",0);
+        Book b = new Book(0,"A","B",0);
+        Book c = new Book(0,"A","B",0);
+        bookDAO.createBook(a);
+        bookDAO.createBook(b);
+        bookDAO.createBook(c);
+        List<Book> books = bookDAO.getAllBooks();
+        int totalBooks = books.size(); // if list did not work and was not tested this might fail regardless
+        Assertions.assertTrue(totalBooks >= 3);
     }
 
 }

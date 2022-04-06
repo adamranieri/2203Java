@@ -43,4 +43,4 @@ The library uses an honor system for donating and checking out bookd
   - Remove books from the library
   - Check-in and check-out books
     - When books are checked out it is for 2 weeks
-  - The library always wants at least one copy of a book unavailable for checkout
+  - The library always wants at least one copy of a book unavailable for checkout**
