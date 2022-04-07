@@ -66,6 +66,9 @@
     - default
     - check 
       - check that a the data is between a certain value
+- **ERD**
+  - Entity Relationship Diagram
+  - A visual representation of how your data is connected
 
   
 |employee_id| first_name|last_name| department|
@@ -76,12 +79,12 @@
 ## Normalization
 - *Removing redundancy from your data*
 - Normalized Forms
-  - **1NF**
-    - Data in the table must be atomic
-      - Columns CANNOT be broken down into smaller columns
-    - All records must be uniquely identifiable
+### 1NF
+- Data in the table must be atomic
+  - Columns CANNOT be broken down into smaller columns
+- All records must be uniquely identifiable
       - Primary Key is a guaranted unique identifier
-    - Records should not contain array like information
+- Records should not contain array like informati
 ##### Poorly Designed table
 |name|salary|phone_numbers|
 |----|------|------------|
@@ -92,11 +95,45 @@
 |emp_id|first_name|last_name|salary|
 |------|----------|---------|------|
 |101|Adam|Ranieri|1000000
+-
 
+### 2NF
+- No functional dependencies
+  - No columns that could be computed
+  - Shooting percentage is redundant
+   
+|player_id|name|shots_attempted|shots_made|shooting_percentage|
+|---------|----|---------------|----------|-------------------|
+|101|Adam|200|180|90|
 
+### 3NF
+- No transitive Dependencies
+  - Storing information in one table that could already be found in another table
+    - If the player table had a column saying hometown
 
 ## Postgres
 - Database is a collection of tables and a schema
   - You can have MULTIPLE databases on your single RDS postgres databases
 - **Database Server**
   - The Actual RDS instance/computer that is running Postgres
+
+## Multiplicites
+- There are 3 ways in which tables can relate to each other (multiplicites)
+- one-one relationship
+  - A record in one table connects to exactly one record in another table
+    - player_stats - player
+  - Not very common to see
+    - A 1-1 could be represented as a single table
+- Many-one
+  - A record in one may have many references in another table
+  - Examples
+    - Player -Team
+      - Many players reference the same team
+    - BankAccount - User
+      - Many bank accounts belong to one user
+- Many-Many 
+  - Many records in one table refernce many records in another table
+  - Usually achieved via a join table
+  - Player - Game
+    - Many players will play in many games
+

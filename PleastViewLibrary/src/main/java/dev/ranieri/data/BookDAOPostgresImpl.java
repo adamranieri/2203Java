@@ -1,9 +1,7 @@
 package dev.ranieri.data;
 
 import dev.ranieri.entities.Book;
-import dev.ranieri.utilities.ArrayList;
-import dev.ranieri.utilities.ConnectionUtil;
-import dev.ranieri.utilities.List;
+import dev.ranieri.utilities.*;
 
 import java.sql.*;
 
@@ -30,6 +28,7 @@ public class BookDAOPostgresImpl implements BookDAO{
 
         } catch (SQLException e) {
             e.printStackTrace();
+            Logger.log(e.getMessage(), LogLevel.ERROR);
             return null;
         }
 
@@ -55,6 +54,7 @@ public class BookDAOPostgresImpl implements BookDAO{
 
         } catch (SQLException e) {
             e.printStackTrace();
+            Logger.log(e.getMessage(), LogLevel.ERROR);
             return null;
         }
 
@@ -82,6 +82,7 @@ public class BookDAOPostgresImpl implements BookDAO{
 
         } catch (SQLException e) {
             e.printStackTrace();
+            Logger.log(e.getMessage(), LogLevel.ERROR);
             return null;
         }
     }

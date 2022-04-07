@@ -3,6 +3,8 @@ package dev.ranieri.services;
 import dev.ranieri.data.BookDAO;
 import dev.ranieri.entities.Book;
 import dev.ranieri.utilities.List;
+import dev.ranieri.utilities.LogLevel;
+import dev.ranieri.utilities.Logger;
 
 public class BookServiceImpl implements BookService{
 
@@ -30,6 +32,7 @@ public class BookServiceImpl implements BookService{
         // when a book is Checked out it should have a return date of 2 weeks in the future
         book.setReturnDate(System.currentTimeMillis() + (14*24*60*60*1000));
         this.bookDAO.updateBook(book);// save the book in the database
+        Logger.log("the book with ID "+ book.getId() + " was checked out", LogLevel.INFO);
         return book;
     }
 
@@ -37,6 +40,7 @@ public class BookServiceImpl implements BookService{
     public Book checkOut(int id) {
         Book book = this.bookDAO.getBookById(id);
         this.checkOut(book);
+        Logger.log("the book with ID "+ book.getId() + " was checked in", LogLevel.INFO);
         return book;
     }
 
