@@ -1,7 +1,7 @@
 # Project 1
 
 ## Overview
-You will be creating a REST API for an expense reimbursement system. The system will will allow the company to track expenses and analyze spending. You will design the entities. 
+You will be creating a REST API for an expense reimbursement system. The system will will allow the company to track expenses and analyze spending. You will design the entities. You have two entities. Employee and Expense.
 
 ## Timeline of deliverables
 - TUE 4/19
@@ -14,7 +14,7 @@ You will be creating a REST API for an expense reimbursement system. The system 
   - App runs locally
 - WED 5/4
   - ***DUE***
-  - Will Be presneting to batch
+  - Will be presenting to the batch
 
 ## Bussiness Rules
 - All expenses have a single employee as the issuer
