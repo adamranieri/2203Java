@@ -1,6 +1,7 @@
 package dev.ranieri.data;
 
 import dev.ranieri.entities.Book;
+import dev.ranieri.exceptions.ResourceNotFound;
 import dev.ranieri.utilities.*;
 
 import java.sql.*;
@@ -44,6 +45,11 @@ public class BookDAOPostgresImpl implements BookDAO{
             ps.setInt(1,id);
 
             ResultSet rs = ps.executeQuery();
+
+            if(rs.getFetchSize() == 0){
+                throw new ResourceNotFound(id);
+            }
+
             rs.next(); // move to first record
             Book book = new Book();
             book.setId(rs.getInt("book_id"));
@@ -98,7 +104,12 @@ public class BookDAOPostgresImpl implements BookDAO{
             ps.setString(2, book.getAuthor());
             ps.setLong(3, book.getReturnDate());
             ps.setInt(4, book.getId());
-            ps.executeUpdate();
+            int rowsUpdated = ps.executeUpdate();
+
+            if(rowsUpdated == 0){
+                throw new ResourceNotFound(book.getId());
+            }
+
             return  book;
 
         } catch (SQLException e) {

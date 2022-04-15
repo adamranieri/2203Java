@@ -12,9 +12,17 @@ public interface BookService {
 
     Book checkIn(Book book);
 
+    Book retrieveBookById(int id);
+
     Book checkOut(Book book);
     Book checkOut(int id);
 
     List<Book> libraryCatalogue();
+
+    boolean destroyBookById(int id);
+
+    Book replaceBook(Book book);
+
+    List<Book> getBooksByTitle(String title);
 
 }

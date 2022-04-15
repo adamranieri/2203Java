@@ -3,6 +3,7 @@ package dev.ranieri.daotests;
 import dev.ranieri.data.BookDAO;
 import dev.ranieri.data.BookDAOPostgresImpl;
 import dev.ranieri.entities.Book;
+import dev.ranieri.exceptions.ResourceNotFound;
 import dev.ranieri.utilities.List;
 import org.junit.jupiter.api.*;
 
@@ -60,6 +61,13 @@ public class BookDaoTests {
         List<Book> books = bookDAO.getAllBooks();
         int totalBooks = books.size(); // if list did not work and was not tested this might fail regardless
         Assertions.assertTrue(totalBooks >= 3);
+    }
+
+    @Test
+    void get_non_existent_book(){
+        Assertions.assertThrows(ResourceNotFound.class, ()->{
+            bookDAO.getBookById(10000);
+        });
     }
 
 }

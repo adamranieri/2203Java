@@ -1,3 +1,12 @@
 INFO HelloThu Apr 07 14:22:00 EDT 2022 
 INFO WassupThu Apr 07 14:22:00 EDT 2022 
-INFOHello Thu Apr 07 14:29:58 EDT 2022DEBUGWassup Thu Apr 07 14:29:58 EDT 2022
+INFOHello Thu Apr 07 14:29:58 EDT 2022DEBUGWassup Thu Apr 07 14:29:58 EDT 2022ERROR ERROR: null value in column "title" of relation "book" violates not-null constraint
+  Detail: Failing row contains (7, null, Khaled Hosseini, 0). Fri Apr 15 11:08:15 EDT 2022
+ERROR ERROR: null value in column "title" of relation "book" violates not-null constraint
+  Detail: Failing row contains (8, null, Khaled Hosseini, 0). Fri Apr 15 11:11:05 EDT 2022
+ERROR ResultSet not positioned properly, perhaps you need to call next. Fri Apr 15 11:25:02 EDT 2022
+INFO the book with ID 6 was checked out Fri Apr 15 11:29:31 EDT 2022
+INFO the book with ID 6 was checked in Fri Apr 15 11:29:31 EDT 2022
+ERROR ResultSet not positioned properly, perhaps you need to call next. Fri Apr 15 11:57:50 EDT 2022
+INFO the book with ID 5 was checked out Fri Apr 15 11:58:08 EDT 2022
+INFO the book with ID 5 was checked in Fri Apr 15 11:58:08 EDT 2022
