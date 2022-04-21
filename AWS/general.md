@@ -8,6 +8,42 @@
 - It is very fast to commission IT infrastrcture in the cloud.
   - Not having to order hardware and set it up
 
+# IaaS PaaS SaaS
+- **Infrastructure as a Service**
+  - Commision cloud resources that are essentially just virtual hardware
+  - IT infrastructure
+  - Examples
+    - EC2
+      - Just a regular old computer
+    - EBS
+      - Just a disk drive
+- **Platform as a Service**
+  - The cloud provider gives you *platform* to deploy/build your application
+  - It is *not* a completed product
+  - **Elastic Beanstalk**
+    - Quickly deploy your applications
+  - **S3**
+    - Easiliy store objects on the cloud
+- **Software as a Service** 
+  - You use a completed product over the web
+    - Examples
+      - gmail
+      - slack
+      - YouTube
+### As a sandwich
+  - IaaS
+    - Go to the grocery store
+    - Buy flour and eggs, and a large uncut meat roast
+    - You got home and from scratch make bread and butcher and cook the meat
+    - You then have your sandwich
+  - PaaS
+    - Go to the grocery store
+    - Buy your sliced roast beef, sliced baguette
+    - You then make your sandwich
+  - SaaS
+    - Go to subway
+    - Order what you want
+
 # AWS
 - Amazon Web Services
 - The largest provider of cloud services/offerings

@@ -1,0 +1,28 @@
+# Elastic Beanstalk
+- Platform as a Service
+- AWS service for quickly deploying standard applications
+  - *standard* a simple http applications
+  - No weird setups or configurations that have to be made
+- Pros
+  - Very fast to deploy an application
+    - Literally drag and drop your application
+  - Very easy to manage and operate an app on elastic beanstalk
+    - Easily configure scaling your application
+    - What type of EC2 to run on
+    - Gives you automatic monitoring and reporting
+      - Health Checks
+      - View the requests that come 
+      - Monitor your traffic
+        - Tons of metrics
+- Cons
+  - Only supports certain languages
+    - Java
+    - Python 
+    - Ruby
+    - more obscure languages or langauges not used for web dev will be tricky
+      - C++
+      - Julia
+      - Rust
+  - Do lose customizability
+    - You cannot configure every setting on the vm
+    - You cannot install custom software or use obscure operating systems
