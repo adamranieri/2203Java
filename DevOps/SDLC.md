@@ -62,4 +62,3 @@
 
 ## Agile Manifesto
 - https://agilemanifesto.org/
-- 
