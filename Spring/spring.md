@@ -1,0 +1,33 @@
+# Spring
+- A lightwight *framework* for building Java applications
+- **Framework**
+  - **IoC Inversion of Control**
+    - Your code does NOT use another person's code
+    - Your code is used *by* the framework/software
+    - You are creating a *spring application*
+      - You must abide by their rules
+      - You must abude by their patterns
+      - Failure to do will prevent the application from working at all
+- EJB Entity Java Beans 
+  - **not related to spring**
+  - People hated them
+  - They were proprietary and sold by oracle
+  - Spring was *free* and *better*
+    - No one paid for a worse version of something that was free
+  - EJBs became extinct
+
+## Dependency Injection, Application Context and Spring Beans
+- **Application Context**
+  - A big container that the Spring framework will manage
+- **Bean**
+  - Any object/class that will be managed in the application context
+  - As a Spring developer your job is to create and configure these beans
+- **Dependency Injection**
+  - Programming design pattern where one object will be *composed/injected* with other objects
+  - A bean will often be injected with other beans
+- As you work on larger projects it is unrealistic to know what most of the application code looks like.
+- Having configured beans will make it easier for you to set up and run the application
+- **Decoupling**
+  - Removing harcoded values and dependenies within the code
+  - Configurable beans that inject each other are a good example of decoupling
+  - makes code very scalable

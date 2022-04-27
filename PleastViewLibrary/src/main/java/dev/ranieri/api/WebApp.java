@@ -1,6 +1,7 @@
 package dev.ranieri.api;
 
 import com.google.gson.Gson;
+import dev.ranieri.configs.LibraryConfig;
 import dev.ranieri.data.BookDAOPostgresImpl;
 import dev.ranieri.entities.Book;
 import dev.ranieri.exceptions.ResourceNotFound;
@@ -8,15 +9,19 @@ import dev.ranieri.services.BookService;
 import dev.ranieri.services.BookServiceImpl;
 import dev.ranieri.utilities.List;
 import io.javalin.Javalin;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class WebApp {
 
-    public static BookService bookService = new BookServiceImpl(new BookDAOPostgresImpl());
-    public static Gson gson = new Gson();
+    public static ApplicationContext applicationContext = new AnnotationConfigApplicationContext(LibraryConfig.class);
+
+    public static BookService bookService = applicationContext.getBean("BookService",BookService.class);
+    public static Gson gson = applicationContext.getBean("Gson", Gson.class);
 
     public static void main(String[] args) {
 
-        Javalin app = Javalin.create();
+        Javalin app = applicationContext.getBean("ProductionApp",Javalin.class);
 
         //CREATE
         app.post("/books", context -> {
