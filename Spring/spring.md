@@ -31,3 +31,40 @@
   - Removing harcoded values and dependenies within the code
   - Configurable beans that inject each other are a good example of decoupling
   - makes code very scalable
+
+## Spring Modules
+- Spring is modular by design
+- A module adds a set of features to your application
+- ***Spring Core***
+  - The essential module in all Spring applications
+  - Without it you do not have a Spring Application
+  - The IoC container/ Application Context
+- **Spring Data**
+  - A module that allows interacting with the database
+  - It is an **ORM** 
+    - Object relational mapping
+    - You use annotations to *map* entitites to tables in the database
+- **Spring WEB/MVC**
+  - A module for creating web servers 
+- **Spring AOP**
+  - Aspect Oriented Programming
+- **Spring Actuator**
+  - Devtools for spring applications
+  - Adds some debug endpoints for your web server
+    - Remote shutdown
+    - Memory Usage
+    - HTTP logs
+
+## Spring Boot
+- ***Spring is not Spring Boot***
+  - Spring boot is an opinionated version of Spring
+  - It assumes a lot of best practices
+  - Allows us to build applications quickly and with good design
+- ***Spring Boot is not a module of Spring***
+  - Has no functionality that could not be done manually in regular Spring
+  - think of spring boot as a preconfigured project
+
+- application.properties
+  - application.yaml sometimes
+  - A file that spring boot will read when you start the application
+  - A configuration file for spring boot

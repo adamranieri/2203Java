@@ -1,0 +1,45 @@
+# AOP
+- **Aspect Oriented Programming**
+  - Paradigm of programming like OOP or Functional
+- **Cross Cutting Concerns**
+  - Features/aspects of our application that do not fit nicely into a single layer
+    - Logging
+    - Security
+    - Error Handling
+- **Aspect**
+  - Is a class that will address a CCC
+- **Advice**
+  - A method(s) that will be called at different locations in your code
+    - Types of advice
+      - @Before
+        - Excutes before the method
+      - @After
+        - Executes after the method
+      - @Around
+        - Surrounds the method giving complete control over its execution
+      - @AfterReturning
+        - Executes after the method ONLY if the does not throw an exception
+      - @AfterThrowing
+        - Executes after the method ONLY if it throws an exceptions
+        - Sometimes error handling is something people like to control in aspects
+- **JoinPoint**
+  - Any part of your code that can be *advised* an advice method is called on it
+    - Spring
+      - Method Excution
+    - General
+      - When memory deallocated
+      - When an object is instantiated
+- **PointCut**
+  - A Regular Express that says what JoinPoints your advice method is targeting
+
+- Pros
+  - Avoid entangling code
+    - Code for logging does not need to explicitly be written elsewhere in your program
+  - Refactoring and modifying aspects is easy
+    - If logging requirements change you only need to edit a single class
+    - No tracking down all the places loggers are used
+- Cons
+  - Can be difficult to debug/trace
+    - You have code edit how other parts of your code work with 0 evidence of it
+  - Slight performance hit
+
