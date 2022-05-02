@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<!-- doctype says this is an html file -->
+
+<!-- root tag that all other tags should go inside of -->
+<html>
+
+    <!-- contain meta infromation about the web page -->
+    <head>
+        <title>Gator Fan Page</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">   
+
+        <style>
+            
+            p{color:blue;background-color: coral; font-family: 'Indie Flower', cursive;}
+            li{color: rebeccapurple;}
+            
+            
+            th.champion{color: blueviolet;}
+            td.champion{color: greenyellow;}      
+            
+            .container {
+  display: grid; 
+  grid-template-columns: 0.6fr 1.2fr 0.9fr 1.1fr 1fr; 
+  grid-template-rows: 0.5fr 0.6fr 1.5fr 0.4fr 1.6fr; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    ". . . . ."
+    ". intro intro intro ."
+    ". heismanList . champtionTable ."
+    ". . . . ."
+    ". celebrate celebrate . ."; 
+}
+.intro { grid-area: intro; }
+.heismanList { grid-area: heismanList; }
+.champtionTable { grid-area: champtionTable; }
+.celebrate { grid-area: celebrate; }
+
+
+
+        </style>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <!-- contain all the the content on the webpaage -->
+    <body>
+
+        <div class="container">
+            <div class="intro">
+                <h1 style="color: coral;">Gator Fan Page</h1>
+                <!-- inline styling -->
+        
+                <h3>About the Gators</h3>
+                <p>
+                    The Gators at the Football team of the University of Florida. The University is located in Gainesville Florida. The University 
+                    is famous for inventing the drink <b>Gatorade</b> <sub>TM</sub>.
+                </p>
+
+            </div>
+            <div class="heismanList">
+                <h4 id="heismanTitle">Heisman Trophy Winners</h4>
+                <ul>
+                    <li>Steve Spurrier</li>
+                    <li>Danny Wuerffel</li>
+                    <li>Tim Tebow</li>
+                    <li>Kyle Trask (In my heart he won the Heisman)</li>
+                </ul>
+            </div>
+            <div class="champtionTable">
+                <table >
+                    <thead >
+                        <th class="champion" >Year</th> <th class="champion">Oppenent</th>
+                    </thead>
+                    <tbody>
+                        <tr><td class="champion">1996</td><td class="champion">Oklahoma</td></tr>
+                        <tr><td class="champion">2006</td><td class="champion">FSU</td></tr>
+                        <tr><td class="champion">2008</td><td class="champion">Ohio State</td></tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="celebrate">
+                <img style="width: 300px; height: 300px; "
+                src="https://cdn.vox-cdn.com/thumbor/SYb4prrGJ4Rdqwz_TnYJ-1I3Ss4=/0x0:4141x2655/920x613/filters:focal(1739x340:2401x1002):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/67704531/usa_today_13855593.0.jpg" 
+                alt="Gator Celebrating">
+        
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+      
+    </body>
+
+</html>
