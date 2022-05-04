@@ -19,3 +19,11 @@
     - User mouses over a list item
     - Page finsished loading
 - JavaScript was designed to *do something* in response to an event
+
+```mermaid
+
+    flowchart LR;
+        Event--updates-->State
+        State--render-->View
+
+```

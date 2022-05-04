@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Task Tracker</title>
+</head>
+<body>
+
+    <h1>Task Tracker</h1>
+
+    <h3>Create a Task</h3>
+    <input type="text" oninput="getTaskInput(event)">
+    <button onclick="addTask(event)">Add Task</button>
+
+    <h3>Pending Tasks</h3>
+    <ul id="pendingTasksList">
+      
+    </ul>
+
+    <h3>Completed Tasks</h3>
+    <ul id="completedTasksList">
+     
+    </ul>
+    
+</body>
+<script>
+
+    // state
+    const tasks = [];
+    let taskName = "";
+
+    // Event Handlers
+    function getTaskInput(event){
+        taskName = event.target.value;
+    }
+
+    function addTask(event){
+        const task = {desc:taskName, isComplete:false};
+        tasks.push(task);
+        renderPendingTasksList();
+    }
+
+    function markTaskComplete(event, taskDesc){
+        
+        for(const task of tasks){
+            if(task.desc === taskDesc){
+                task.isComplete = true;
+            }
+        }
+
+        renderPendingTasksList();
+        renderCompletedTasks();
+    }
+
+    //render
+    function renderPendingTasksList(){
+        const pendingTasksListElement = document.getElementById("pendingTasksList");
+        const pendingTasks = tasks.filter(t => !t.isComplete); // filter the array to get me a new array with only pending tasks
+        const listHTML = pendingTasks.map(t => `<li> ${t.desc} <button onclick="markTaskComplete(event,'${t.desc}')" >Complete</button></li>`).join("");
+        pendingTasksListElement.innerHTML = listHTML;
+    }
+
+    function renderCompletedTasks(){
+        const completedTasksList = document.getElementById("completedTasksList");
+        const completedTasks = tasks.filter(t => t.isComplete);
+        const listHTML = completedTasks.map(t => `<li> ${t.desc}</li>`).join("");
+        completedTasksList.innerHTML = listHTML;
+    }
+
+
+</script>
+</html>

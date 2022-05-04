@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Grocery Mate</h1>
+
+    <fieldset>
+        <legend>Grocery Adder</legend>
+        <input type="text" oninput="setGrocery(event)">
+        <button onclick="addGrocery(event)">Add</button>
+    </fieldset>
+
+    <h3>Groceries</h3>
+    <ul id="groceryList">
+     
+    </ul>
+    
+</body>
+<script>
+
+    //state
+    const groceries = [];
+    let grocery = "";
+
+    //Event Handlers
+    function setGrocery(event){
+        grocery = event.target.value
+    }
+
+    function addGrocery(event){
+        groceries.push(grocery)
+        renderGroceryList();// please rerender my grocery list
+    }
+
+    //render the html to reflect the state
+    function renderGroceryList(){
+        const groceryListElement = document.getElementById("groceryList")
+
+        let groceryListHTML = "";
+
+        for(const g of groceries){
+            groceryListHTML += `<li>${g}</li>`
+        }
+
+        groceryListElement.innerHTML = groceryListHTML;
+
+    }
+
+
+</script>
+</html>
