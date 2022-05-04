@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" oninput="updateTaskValue(event)">
+
+    <button onclick="addTask(event)">Add Task</button>
+
+    <h3>Pending Tasks</h3>
+    <ul id="pendingTasks">
+
+    </ul>
+
+    <h3>Completed Tasks</h3>
+    <ul id="completedTasks">
+
+    </ul>
+
+
+    
+
+</body>
+<script>
+    // State
+    const tasks = [];
+    let currTask = "";
+
+    //Event handlers
+    function updateTaskValue(event){
+        currTask = event.target.value;
+    }
+
+    function addTask(event){
+        tasks.push({desc:currTask, tId:Math.random(), status:"Pending"});
+        renderPendingTasks();
+    }
+
+    function markComplete(event, tId){
+        for(const task of tasks){
+            if(task.tId === tId){
+                task.status = "Done";
+            }
+        }
+        renderCompletedTasks()
+        renderPendingTasks()
+    }
+
+    //rerender the view
+    function renderPendingTasks(){
+        const pendingTasksList = document.getElementById("pendingTasks");
+        const pendingTasks = tasks.filter(t => t.status === "Pending");
+        pendingTasksList.innerHTML = pendingTasks.map(t => PendingTaskListItem(t)).join("");
+    }
+
+    function renderCompletedTasks(){
+        const completedTasksList = document.getElementById("completedTasks");
+        const completedTasks= tasks.filter(t => t.status === "Done");
+        completedTasksList.innerHTML = completedTasks.map(t => `<li>${t.desc}</li>`).join("");
+    }
+
+    //components
+    function PendingTaskListItem(task){
+        return(`<li>${task.desc} <button onclick="markComplete(event,${task.tId})">Done</button></li>`)
+    }
+
+</script>
+</html>

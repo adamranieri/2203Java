@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Greeter App</title>
+</head>
+<body>
+
+    <input type="text" oninput="getValue(event)">
+    <button onclick="hello(event)">Hello</button>
+    <button id="holaBtn">Hola</button>
+    <button onclick="greeter(event)">Greet</button>
+    
+</body>
+<script>
+    // Most Web Pages have some state
+    // state = some values that we want to store an re-use/ use in other places
+    let name = "Nobody"
+
+    // Web Pages will automatically pass in an event object into your function
+    // The event object has a bunch of information about the event
+    function hello(event){
+        console.log(event);
+        alert("HELLO!!!");
+    }
+
+    function hola(event){
+        console.log(event);
+        alert("Hola");
+    }
+
+    function getValue(event){
+        //console.log(event);// event object massive
+        //console.log(event.target);// gets you the specific element that the event came from
+        //console.log(event.target.value)// value is a property input elements have. It holds the value of the input field
+        name = event.target.value;// will set the name variable at line 17 to whatever the input field value is
+    }
+
+    function greeter(event){
+        alert(`Greetings ${name}`);
+    }
+
+    
+    // event listeners
+    // we use JS to grab an element from the dom
+    const holaButton = document.getElementById("holaBtn");
+    holaButton.addEventListener("click", hola);
+    // attach an event listener to that DOM element. when the click event occurs on that button execute the callback function
+
+
+</script>
+</html>
