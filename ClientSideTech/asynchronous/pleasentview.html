@@ -43,6 +43,14 @@
 
     async function createBook(){
         const book = {id:"", title:title, author:author, returnDate:0};
+        const bookJSON = JSON.stringify(book);// return a a JSON STRING from my JS Object
+        const response = await fetch("http://localhost:8080/books",{method:"POST", body:bookJSON, headers:{'Content-Type':"application/json"}})
+        if(response.status === 200){
+            alert("Successfully Created Book")
+        }else{
+            alert("FAILURE")
+        }
+        getAllBooks()
     }
 
     async function getAllBooks(){
