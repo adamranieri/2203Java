@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+
+    <button onclick="getJSON(event)">Get JSON</button>
+    
+</body>
+<script>
+
+    async function getJSON(event){
+        // A lot of functions that a web browser has return a Promise
+        // A promise is special object that is like an empty container
+        // a promise object will *eventually* contain the response and you can use it then
+        // await will tell JS to HALT execution until the promise is actually resolved
+        const httpResponse = await fetch("http://myjson.dit.upm.es/api/bins/fkxd");// makes an HTTP Request to that endpoints it defaults to GET
+        console.log(httpResponse);
+        const body = await httpResponse.text();// The actual body of a HTTP response comes in second
+        //HTTP responses actually come in 2 parts. 1st part is the headers and status code, 2nd body
+        console.log(body)
+    }
+
+
+
+</script>
+</html>

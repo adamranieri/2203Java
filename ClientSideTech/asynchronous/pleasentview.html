@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Pleasant View </title>
+</head>
+<body>
+    <h1>Employee Dashboard</h1>
+
+    <h2>Books</h2>
+    <table>
+        <thead><th>Book ID</th><th>Title</th><th>Author</th><th>Available?</th></thead>
+        <tbody id="bookTableBody">
+        </tbody>
+    </table>
+
+    <h2>Book Registration Form</h2>
+
+    <fieldset>
+        <legend>Register a Book</legend>
+
+        <label for="titleInput">Title</label>
+        <input name="titleInput" type="text" placeholder="Frankenstein" oninput="setTitle(event)">
+
+        <label for="authorInput">Author</label>
+        <input name="authorInput" type="text" placeholder="Mary Shelley" oninput="setAuthor(event)">
+
+        <button onclick="createBook()">Register</button>
+    </fieldset>
+    
+</body>
+<script>
+
+    let title = "";
+    let author = "";
+
+    function setTitle(event){
+        title = event.target.value;
+    }
+
+    function setAuthor(event){
+        author = event.target.value;
+    }
+
+    async function createBook(){
+        const book = {id:"", title:title, author:author, returnDate:0};
+    }
+
+    async function getAllBooks(){
+        const response = await fetch("http://localhost:8080/books");
+        const books = await response.json();
+        const tbodyElement = document.getElementById("bookTableBody");
+        tbodyElement.innerHTML = books.map(b => `
+            <tr>
+                <td>${b.id}</td>
+                <td>${b.title}</td>
+                <td>${b.author}</td>
+                <td>${b.returnDate === 0 ?"Yes":"No" }</td>
+            </tr>`).join("")
+    }
+
+    getAllBooks();
+
+</script>
+</html>
