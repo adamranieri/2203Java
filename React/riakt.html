@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Riakt</title>
+</head>
+<body id="content">
+    
+</body>
+<script>
+    const body = document.getElementById("content");
+
+    // a Compenent is a function that returns a view
+    // Start with capital Letter
+    function Intro(){
+        return(`<h1>Welcome to the WVU office </h1>`)
+    }
+
+    function About(){
+        return(`<p> The WVU office is located in <b>Morgantown WV </b>. The office was established in 2018</p>`)
+    }
+
+    // We can resuse components easily and we can have components that are dynamic and take in values
+    function EmployeeInfo(firstName, lastName, title){
+
+        return(`<div>
+            <h5> ${firstName} <h5/>
+            <h5> ${lastName} <h5/>
+            <h5> ${title} <h5/>
+            </div>`)
+    }
+
+    function CurriclaList(curricula = [""]){
+
+        const curriculaItems = curricula.map(c => `<li> ${c} </li>`).join("")
+
+        return(`
+            <ul>
+               ${curriculaItems}
+            </ul>
+        `)
+    }
+
+    body.innerHTML=`
+        ${Intro()}
+        ${About()}
+
+        ${EmployeeInfo("Adam", "Ranieri", "Principal Trainer")}
+        ${EmployeeInfo("Shelby", "Lloyd", "Associate Mentor")}
+        ${EmployeeInfo("Ryan", "Schlientz", "Lead Trainer")}
+
+        ${CurriclaList(["Java Full Stack", "Python Full Stack", "React Native", "Java with Automation"])}
+
+
+    `
+
+
+
+</script>
+</html>
