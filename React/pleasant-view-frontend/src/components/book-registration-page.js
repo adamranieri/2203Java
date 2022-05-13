@@ -5,6 +5,7 @@ export default function BookRegistrationPage(){
 
     // you can make HTTP requests whenever you need to
     const [publishers,setPublishers] = useState([]);
+    const [username,setUsername] = useState("Not logged in")
 
     async function getAllPublishers(){
         const response = await fetch("https://bc16-2603-301f-1625-c000-e4ca-eb06-ff74-3db4.ngrok.io/publishers");
@@ -14,6 +15,10 @@ export default function BookRegistrationPage(){
 
     // publishers will be populated once the http request completes
     useEffect(()=>{
+        const employeeInfo = JSON.parse(sessionStorage.getItem("employee"))
+        // logic that checks that the employee info IS valid
+        // if not you can redirect to another page
+        setUsername(employeeInfo.username)
         getAllPublishers()
     },[])
 
@@ -59,6 +64,7 @@ export default function BookRegistrationPage(){
 
     return(<>
         <h1>Book Registration</h1>
+        <h2>logged in as {username}</h2>
         <fieldset>
             <legend>Register Book</legend>
 
